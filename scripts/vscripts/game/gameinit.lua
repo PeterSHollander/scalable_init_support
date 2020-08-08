@@ -7,9 +7,6 @@
 
 local DIRECTORY = "mods/init/"
 
-print("Standardizing addon dependency funtions")
-require("mods/modutils.lua")
-
 local addonList = Convars:GetStr("default_enabled_addons_list")
 print("Identified list of enabled addons:\n" .. addonList)
 
