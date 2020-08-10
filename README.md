@@ -21,22 +21,22 @@ To integrate Scalable Init Support into your own VScript mods, do the following:
 * Ship it!
 
 ## FAQ
-**Q**: **What is an init-based mod?**
+**Q**: **What is an init-based mod?**  
 **A**: Init-based mods are mods that require some/all of the content to be initialized within VScripts, rather than through the use of map files.
 
-**Q**: **Why would I want to make my mod an init-based mod?**
+**Q**: **Why would I want to make my mod an init-based mod?**  
 **A**: The "init" stage of VScripting is executed for _all_ maps, not just maps that you set up.  So by making your mod init-based, all the content created from within the init VScripts will work on _any_ map!
 
-**Q**: **Why do I need something like Scalable Init Support to make an init-based mod?**
+**Q**: **Why do I need something like Scalable Init Support to make an init-based mod?**  
 **A**: When you overwrite one of the base init files for your mod's use, then any other mods which overwrite init files will in turn overwrite yours, leaving only one of these mods active in the end.  The code found in `game/gameinit.lua` takes care of procedurally searching for custom init files based on each mod's workshop ID.
 
-**Q**: **Why can't I just copy Scalable Init Support's `game/gameinit.lua` to my own mod when I ship it?**
+**Q**: **Why can't I just copy Scalable Init Support's `game/gameinit.lua` to my own mod when I ship it?**  
 **A**: If you were to release your own init-based mod that overwrites `game/gameinit.lua`, then that would mean as Valve pushes changes to the VScripting system or as bugs are discovered in `game/gameinit.lua`, keeping this file up-to-date would be on **you**, and there would be no guarantee that the updates _you_ push to `game/gameinit.lua` would be the same as the updates _other_ developers push.  By keeping this file centralized in Scalable Init Support, such a patch would only need to come to _this_ addon, thus reducing potential overlapping points of failure from 10's or 100's of mods down to just one.
 
-**Q**: **I'm worried about my mod having dependencies, and that it will potentially lead to a bad end-user experience.**
+**Q**: **I'm worried about my mod having dependencies, and that it will potentially lead to a bad end-user experience.**  
 **A**: We understand!  That's why we've added a dependency enforcer to `scripts/vscripts/core/coreinit.lua`.  If, after being notified by Steam about the dependency, your user forgets to enable/install Scalable Init Support, then having this project's `core/coreinit.lua` present in _your_ mod's vscripts folder will either enable the dependency or warn the user that it is not installed, respectively.  This dependency enforcement feature is available for you to use in your own codebase as well, should you choose to do so.
 
-**Q**: **Why should I adopt the standards laid out by Scalable Init Support?**
+**Q**: **Why should I adopt the standards laid out by Scalable Init Support?**  
 **A**: Multiple developers working on init-based mods for Half-Life: Alyx have come together and believe that this is the best way to load multiple addons at once moving forward.  The standard keeps the `scripts/vscripts/` root uncluttered, narrows the mod-loader code down to one centralized dependency, and cleanly reports mod-loading errors in the console should any come up.  If for whatever reason you are uncomfortable with adopting this standard, let us know why on the mod's workshop page or on GitHub and we will gladly work towards a resolution.
 
 ## Additional notes
