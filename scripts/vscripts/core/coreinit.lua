@@ -25,7 +25,7 @@ local playerActivateListener = nil
 
 
 
--- Be careful using overrideAddonPriority - You should have a seriously good reason to raise your priority above Scalable Init Support's.
+-- Be careful using overrideAddonPriority - You should have a seriously good reason to raise your priority above Scalable Init Support's, as you risk breaking compatibility of multiple dependent mods.
 EnforceAddonDependency = function (workshopID, addonName, addonConvar, overrideAddonPriority)
 
     addonName = addonName or workshopID
